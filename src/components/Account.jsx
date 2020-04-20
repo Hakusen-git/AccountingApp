@@ -10,7 +10,7 @@ class Account extends Component {
                 <p style={pStyle}>{detail}</p>
                 <p style={pStyle}>{date}</p>
                 <p style={pStyle}>{amount}</p>
-                <button onClick={this.props.delAccount.bind(this, id)}style={btnStyle}>Delete</button> 
+                <button onClick={this.props.delAccount.bind(this, id)} style={btnStyle}>Delete</button> 
             </div>
         )
     }

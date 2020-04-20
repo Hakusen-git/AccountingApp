@@ -20,7 +20,8 @@ class App extends React.Component {
       }
     ],
 
-    search: ''
+    search: '',
+    type: ''
   }
 
   addAccount = (account) => {
@@ -34,19 +35,31 @@ class App extends React.Component {
   }
 
   handleSearch = (e) => {
-      this.setState({ search: e.target.value })
+      this.setState({ search: e.target.value });
   }
 
+  setDeposit = (e) => {
+    this.setState({ type: 'Deposit' });
+  }
+
+  setExpense = (e) => {
+    this.setState({ type: 'Expense' });
+  }
+
+  setAll = (e) => {
+    this.setState({ type: '' });
+  }
 
   render(){
+
     let filtered = this.state.accounts.filter((account) => {
-      return account.detail.toLowerCase().includes(this.state.search.toLowerCase());
+      return (account.detail.toLowerCase().includes(this.state.search.toLowerCase()) && account.type.toLowerCase().includes(this.state.type.toLowerCase()));
     });
 
     return (
       <div className="App">
         <Header />
-        <Navbar />
+        <Navbar setAll={this.setAll} setDeposit={this.setDeposit} setExpense={this.setExpense}/>
         <AddAccount addAccount={this.addAccount}/>
         <SearchBox handleSearch={this.handleSearch} />
         <Accounts  filterAccount={filtered} delAccount={this.delAccount}/>

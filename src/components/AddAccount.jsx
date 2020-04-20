@@ -25,7 +25,7 @@ class AddAccount extends Component{
                 type: this.state.type,
                 catagory: this.state.catagory,
                 detail: '',
-                date: '',
+                date: this.state.date,
                 amount: ''
             }
         )
