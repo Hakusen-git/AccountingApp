@@ -14,7 +14,7 @@ class App extends React.Component {
         id: uuid(),
         type: 'Deposit',
         catagory: 'Food',
-        detail: 'Taiping',
+        detail: 'Countdown',
         date: '03/04/2020',
         amount: '$300'
       }
@@ -53,7 +53,8 @@ class App extends React.Component {
   render(){
 
     let filtered = this.state.accounts.filter((account) => {
-      return (account.detail.toLowerCase().includes(this.state.search.toLowerCase()) && account.type.toLowerCase().includes(this.state.type.toLowerCase()));
+      return (account.detail.toLowerCase().includes(this.state.search.toLowerCase()) 
+              && account.type.toLowerCase().includes(this.state.type.toLowerCase()));
     });
 
     return (

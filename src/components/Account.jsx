@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 
 class Account extends Component {
+    state = {
+        hover: false
+    }
+
+    toggleHover() {
+        this.setState({ hover: !this.state.hover });
+    }
+
     render() {
+        
+
         const {id, type, catagory, detail, date, amount} = this.props.account;
+        
+      
+
         return (
             <div style={{background: '#f8f8f8', margin: '10px auto', border: '3px solid #ff8b3d', textAlign: 'center', padding: '10px', display:'flex'}}>
                 <p style={pStyle}>{type}</p>
@@ -10,7 +23,7 @@ class Account extends Component {
                 <p style={pStyle}>{detail}</p>
                 <p style={pStyle}>{date}</p>
                 <p style={pStyle}>{amount}</p>
-                <button onClick={this.props.delAccount.bind(this, id)} style={btnStyle}>Delete</button> 
+                <button onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} onClick={this.props.delAccount.bind(this, id)} style={btnStyle}>Delete</button> 
             </div>
         )
     }
@@ -33,7 +46,8 @@ const btnStyle = {
     padding: '5px 9px',
     borderRadius: '25%',
     cursor: 'pointer',
-    float: 'right'
+    float: 'right',
+    transition: 'all 0.5s ease',
 }
 
 export default Account;
