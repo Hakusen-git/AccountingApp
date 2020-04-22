@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
+import './hoverButton.css';
 
 class Account extends Component {
-    state = {
-        hover: false
-    }
-
-    toggleHover() {
-        this.setState({ hover: !this.state.hover });
-    }
-
+   
     render() {
         
 
@@ -22,8 +16,8 @@ class Account extends Component {
                 <p style={pStyle}>{catagory}</p>
                 <p style={pStyle}>{detail}</p>
                 <p style={pStyle}>{date}</p>
-                <p style={pStyle}>{amount}</p>
-                <button onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} onClick={this.props.delAccount.bind(this, id)} style={btnStyle}>Delete</button> 
+                <p style={pStyle}>${amount}</p>
+                <button className="button"  onClick={this.props.delAccount.bind(this, id)} >Delete</button> 
             </div>
         )
     }
@@ -38,16 +32,5 @@ const pStyle = {
     margin: '0'
 }
 
-const btnStyle = {
-    background: '#ff8b3d',
-    flex: '1',
-    color: '#fff',
-    border: 'none',
-    padding: '5px 9px',
-    borderRadius: '25%',
-    cursor: 'pointer',
-    float: 'right',
-    transition: 'all 0.5s ease',
-}
 
 export default Account;

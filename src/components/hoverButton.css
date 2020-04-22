@@ -1,0 +1,16 @@
+
+.button{
+    flex: 1;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    border-radius: 25%;
+    cursor: pointer;
+    float: right;
+    transition: all 0.5s ease;
+    background: orangered;
+}
+
+.button:hover{
+    background: red;
+}
